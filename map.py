@@ -1,5 +1,4 @@
 import folium
-import json
 import requests
 
 # Define a color palette
@@ -27,10 +26,6 @@ def add_geojson_from_url(geojson_url, name, color, map_obj):
         # Custom handling for the new GeoJSON layer
         all_fields = list(geojson_data['features'][0]['properties'].keys())
         geojson_layer.add_child(folium.GeoJsonPopup(fields=all_fields, labels=True))
-    else:
-        # For other layers, list all available fields
-        all_fields = list(geojson_data['features'][0]['properties'].keys())
-        geojson_layer.add_child(folium.GeoJsonPopup(fields=all_fields, labels=True))
 
     geojson_layer.add_to(feature_group)
     feature_group.add_to(map_obj)
@@ -38,7 +33,7 @@ def add_geojson_from_url(geojson_url, name, color, map_obj):
 # Add each GeoJSON source as a separate feature group with a color, label, and pop-up
 github_geojson_sources = [
     ("https://services.arcgis.com/njFNhDsUCentVYJW/arcgis/rest/services/MDOT_SHA_County_Boundaries/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson", "MDOT SHA County Boundaries"),
-    ("https://github.com/MEADecarb/schools/blob/main/MDHB550CensusTracts.geojson", "MD HB 550 Census Tracts")  # New GeoJSON Layer
+    ("https://raw.githubusercontent.com/MEADecarb/schools/main/MDHB550CensusTracts.geojson", "MD HB 550 Census Tracts")  # Corrected URL for raw GeoJSON
 ]
 
 for i, (url, name) in enumerate(github_geojson_sources):
@@ -50,6 +45,3 @@ folium.LayerControl().add_to(m)
 
 # Display the map
 m
-
-
-
