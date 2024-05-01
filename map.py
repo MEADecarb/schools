@@ -51,5 +51,5 @@ folium.LayerControl().add_to(m)
 # Display the map
 m
 
-m.save("index.html")
+
 
