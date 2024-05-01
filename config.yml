@@ -1,0 +1,7 @@
+theme: jekyll-theme-minimal
+title: Mayland HB550 Census Tracts
+description: An interactive map of HB550 census tracts. 
+plugins:
+- jekyll-remote-theme 
+baseurl: "/schools" # the subpath of your site, e.g. /blog
+url: "https://MEADecarb.github.io" # the base hostname & protocol for your site
