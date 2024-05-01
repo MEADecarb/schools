@@ -1,4 +1,5 @@
 import folium
+from folium.plugins import Geocoder
 import requests
 
 # Define a color palette
@@ -42,6 +43,18 @@ for i, (url, name) in enumerate(github_geojson_sources):
 
 # Add Layer Control to toggle feature groups
 folium.LayerControl().add_to(m)
+
+# Initialize the geocoder plugin
+geocoder = Geocoder(
+    collapse=True,
+    position='topleft',
+    add_marker=True,
+    popup_on_found=True,
+    zoom=12,
+    search_label='address'
+)
+
+geocoder.add_to(m)
 
 # Display the map
 m
