@@ -1,3 +1,9 @@
+---
+layout: default
+title: "My Awesome Page"
+---
+
+Here is the content of my awesome page.
 
 # HB550 Census Tracts Map
 
